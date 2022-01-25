@@ -1,7 +1,15 @@
 import React from "react";
 import { InputBase, Button, Box } from "@mui/material";
 import "./textbox.css";
-const NotesCreate = ({ setInFocus, title, content, setContent }) => {
+
+const NotesCreate = ({
+	setInFocus,
+	title,
+	content,
+	setContent,
+	dispatch,
+	setTitle,
+}) => {
 	return (
 		<div
 			style={{
@@ -34,14 +42,27 @@ const NotesCreate = ({ setInFocus, title, content, setContent }) => {
 							background: "#FBBC04",
 						},
 					}}
-					onClick={() => {}}
+					onClick={() => {
+						dispatch({
+							type: "CREATE_NOTE",
+							title,
+							content,
+						});
+						setTitle("");
+						setContent("");
+						setInFocus(false);
+					}}
 				>
 					Add
 				</Button>
 				<Button
 					variant="outlined"
 					sx={{ width: "100px" }}
-					onClick={() => setInFocus(false)}
+					onClick={() => {
+						setInFocus(false);
+						setTitle("");
+						setContent("");
+					}}
 				>
 					Cancel
 				</Button>
