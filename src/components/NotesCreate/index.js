@@ -7,7 +7,7 @@ const NotesCreate = () => {
 	const [infocus, setInFocus] = useState(false);
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
-	const [{ notes }, dispatch] = useNotesContextValue();
+	const [, dispatch] = useNotesContextValue();
 	return (
 		<div>
 			<Paper elevation="5" className="create-notes-container">

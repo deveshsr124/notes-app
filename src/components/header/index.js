@@ -3,19 +3,19 @@ import "./header.css";
 import { Typography } from "@mui/material";
 import {
 	Box,
-	InputBase,
-	IconButton,
-	Snackbar,
-	ClickAwayListener,
-	Icon,
+	// InputBase,
+	// IconButton,
+	// Snackbar,
+	// ClickAwayListener,
+	// Icon,
 	AppBar,
 	Toolbar,
 } from "@mui/material";
-import { LightMode } from "@mui/icons-material";
+// import { LightMode } from "@mui/icons-material";
+import { DescriptionOutlined } from "@mui/icons-material";
 import SearchBar from "./SearchBar";
-import { useThemeContextValue } from "../../context/ThemContextProvider";
-const Header = () => {
-	const [{ isDark }, dispatch] = useThemeContextValue();
+// import { useThemeContextValue } from "../../context/ThemContextProvider";
+const Header = ({ searchterm, setSearchTerm }) => {
 	return (
 		<div>
 			<AppBar
@@ -27,16 +27,19 @@ const Header = () => {
 				}}
 			>
 				<Toolbar>
-					<div style={{ flex: "0.2" }}>
-						<Typography fontSize="16px" fontWeight="bold">
-							My Notes
-						</Typography>
+					<div style={{ flex: "0.3", paddingLeft: "10px" }}>
+						<div style={{ display: "flex", alignItems: "center" }}>
+							<Typography fontSize="16px" fontWeight="bold" paddingRight="10px">
+								Notes
+							</Typography>
+							<DescriptionOutlined sx={{ fontSize: "25px" }} />
+						</div>
 					</div>
-					<Box flex="0.6" alignItems="center">
-						<SearchBar />
+					<Box flex="0.7" alignItems="center">
+						<SearchBar searchterm={searchterm} setSearchTerm={setSearchTerm} />
 					</Box>
 
-					<Box flex="0.2">
+					{/*<Box flex="0.2">
 						<IconButton
 							onClick={() => {
 								dispatch({
@@ -46,7 +49,7 @@ const Header = () => {
 						>
 							<LightMode />
 						</IconButton>
-					</Box>
+						</Box>*/}
 				</Toolbar>
 			</AppBar>
 		</div>

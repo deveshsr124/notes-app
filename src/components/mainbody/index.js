@@ -6,10 +6,10 @@ import Note from "../Note";
 import { Grid, Box } from "@mui/material";
 const Home = () => {
 	const [{ notes }, dispatch] = useNotesContextValue();
-	console.log("updated notes", notes);
+	const [searchterm, setSearchTerm] = useState("");
 	return (
 		<div>
-			<Header />
+			<Header searchTerm={searchterm} setSearchTerm={setSearchTerm} />
 			<div
 				style={{ marginTop: "10%", display: "flex", justifyContent: "center" }}
 			>
@@ -21,13 +21,23 @@ const Home = () => {
 					spacing={{ xs: 2, md: 3 }}
 					columns={{ xs: 4, sm: 12, md: 12 }}
 				>
-					{notes.map((item) => {
-						return (
-							<Grid item xs={12} sm={4} md={3} key={item.id}>
-								<Note note={item} dispatch={dispatch} id={item.id} />
-							</Grid>
-						);
-					})}
+					{notes
+						.filter((val) => {
+							if (searchterm === "") {
+								return <h1>no serch term</h1>;
+							} else if (
+								val.title.toLowerCase().includes(searchterm.toLowerCase())
+							) {
+								return val;
+							}
+						})
+						.map((item) => {
+							return (
+								<Grid item xs={12} sm={4} md={3} key={item.id}>
+									<Note note={item} dispatch={dispatch} id={item.id} />
+								</Grid>
+							);
+						})}
 				</Grid>
 			</Box>
 		</div>

@@ -1,20 +1,19 @@
 import React from "react";
 import { Box } from "@mui/material";
-import { Delete } from "@mui/icons-material";
+import { DeleteOutlined } from "@mui/icons-material";
 const Toolbar = ({ dispatch, id, title, content }) => {
-	console.log("id", id);
 	return (
 		<div>
 			<Box
 				sx={{
 					display: "flex",
 					justifyContent: "right",
-					fontSize: "20px",
+
 					cursor: "pointer",
 				}}
 			>
-				<Delete
-					fontSize="20px"
+				<DeleteOutlined
+					sx={{ fontSize: "22px" }}
 					onClick={() => {
 						dispatch({
 							type: "DELETE_NOTE",

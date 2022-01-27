@@ -14,6 +14,7 @@ export const themereducer = (state, action) => {
 	}
 };
 
+//CRUD operations
 export const notesreducer = (state, action) => {
 	let newState = { ...state };
 	switch (action.type) {
@@ -33,7 +34,11 @@ export const notesreducer = (state, action) => {
 					: { ...data };
 			});
 			return newState;
-
+		case "DELETE_NOTE":
+			newState.notes = newState.notes.filter((data) => {
+				return data.id !== action.payload;
+			});
+			return newState;
 		default:
 			break;
 	}

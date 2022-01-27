@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, InputBase } from "@mui/material";
+import { InputBase } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import "./header.css";
-const SearchBar = () => {
+const SearchBar = ({ searchterm, setSearchTerm }) => {
 	return (
 		<div className="search-container">
 			<div className="search-icon-div">
@@ -11,15 +11,8 @@ const SearchBar = () => {
 			<InputBase
 				placeholder="Search"
 				className="input-search"
-				// classes={{
-				//   root: classes.inputRoot,cd
-				//   input: classes.inputInput
-				// }}
-				// value={searchTerm}
-				// onClick={() => setFocussed(true)}
-				// inputProps={{ "aria-label": "search" }}
-				// onChange={event => setSearchTerm(event.target.value)}
-				// onKeyDown=
+				value={searchterm}
+				onChange={(e) => setSearchTerm(e.target.value)}
 			/>
 		</div>
 	);
