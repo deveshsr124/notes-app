@@ -19,7 +19,7 @@ const Header = ({ searchterm, setSearchTerm }) => {
 	return (
 		<div>
 			<AppBar
-				elevation="0"
+				elevation={0}
 				sx={{
 					backgroundColor: "#FFF",
 					borderBottom: "1px solid #E0E0E0",

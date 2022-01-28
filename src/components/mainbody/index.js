@@ -24,7 +24,7 @@ const Home = () => {
 					{notes
 						.filter((val) => {
 							if (searchterm === "") {
-								return <h1>no serch term</h1>;
+								return val;
 							} else if (
 								val.title.toLowerCase().includes(searchterm.toLowerCase())
 							) {

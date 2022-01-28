@@ -10,7 +10,7 @@ const NotesCreate = () => {
 	const [, dispatch] = useNotesContextValue();
 	return (
 		<div>
-			<Paper elevation="5" className="create-notes-container">
+			<Paper elevation={5} className="create-notes-container">
 				<InputBase
 					className="title-input"
 					placeholder={infocus === true ? "Title" : "Take a note..."}
