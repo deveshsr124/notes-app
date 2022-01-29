@@ -7,6 +7,13 @@ import { Grid, Box } from "@mui/material";
 const Home = () => {
 	const [{ notes }, dispatch] = useNotesContextValue();
 	const [searchterm, setSearchTerm] = useState("");
+	const searchFilter = (val) => {
+		if (searchterm === "") {
+			return val;
+		} else if (val.title.toLowerCase().includes(searchterm.toLowerCase())) {
+			return val;
+		}
+	};
 	return (
 		<div>
 			<Header searchTerm={searchterm} setSearchTerm={setSearchTerm} />
@@ -22,15 +29,7 @@ const Home = () => {
 					columns={{ xs: 4, sm: 12, md: 12 }}
 				>
 					{notes
-						.filter((val) => {
-							if (searchterm === "") {
-								return val;
-							} else if (
-								val.title.toLowerCase().includes(searchterm.toLowerCase())
-							) {
-								return val;
-							}
-						})
+						.filter((val) => searchFilter(val))
 						.map((item) => {
 							return (
 								<Grid item xs={12} sm={4} md={3} key={item.id}>
