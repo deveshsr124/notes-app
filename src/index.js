@@ -3,16 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ThemeContextProvider } from "./context/ThemContextProvider";
-import { initialState, themereducer, notesreducer } from "./reducers";
+import { initialState, notesreducer } from "./reducers";
 import { NotesContextProvider } from "./context/NotesContext";
 ReactDOM.render(
 	<React.StrictMode>
-		<ThemeContextProvider initialState={initialState} reducer={themereducer}>
-			<NotesContextProvider initialState={initialState} reducer={notesreducer}>
-				<App />
-			</NotesContextProvider>
-		</ThemeContextProvider>
+		<NotesContextProvider initialState={initialState} reducer={notesreducer}>
+			<App />
+		</NotesContextProvider>
 	</React.StrictMode>,
 	document.getElementById("root")
 );

@@ -20,6 +20,7 @@ const ContentTitle = ({ isedit, title, setTitle, note }) => {
 						fontWeight: "bold",
 						paddingBottom: "5px",
 						fontFamily: "Roboto Mono",
+						overflowWrap: "break-word",
 					}}
 				>
 					{note.title}

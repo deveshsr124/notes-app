@@ -1,18 +1,17 @@
 let notesId = 0;
 export const initialState = {
-	isDark: null,
 	notes: [],
 };
 
-export const themereducer = (state, action) => {
-	switch (action.type) {
-		case "SET_UI_MODE":
-			const isDark = false;
-			return { ...state, isDark: !isDark };
-		default:
-			return state;
-	}
-};
+// export const themereducer = (state, action) => {
+// 	switch (action.type) {
+// 		case "SET_UI_MODE":
+// 			const isDark = false;
+// 			return { ...state, isDark: !isDark };
+// 		default:
+// 			return state;
+// 	}
+// };
 
 //CRUD operations
 export const notesreducer = (state, action) => {
